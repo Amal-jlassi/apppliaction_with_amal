@@ -18,7 +18,7 @@ class CreateState extends State<Create>{
           'Name',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:27,
+              fontSize:40,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -28,7 +28,7 @@ class CreateState extends State<Create>{
           alignment: Alignment.centerLeft,
           decoration:  BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(100),
               boxShadow: [
                 BoxShadow(
                     color: Colors.black,
@@ -38,7 +38,6 @@ class CreateState extends State<Create>{
               ]
           ),
           height: 60,
-
           child: TextFormField(
             keyboardType:TextInputType.emailAddress,
             style: const TextStyle(
@@ -63,60 +62,59 @@ class CreateState extends State<Create>{
       ],
     );
   }
-  Widget Date_Of_Birthday(){
-
-
+  Widget date_of_birth(){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
-        const Text(
-          'Date_Of_Birthday',
-          style: TextStyle(
-              color: Colors.white70,
-              fontSize:27,
-              fontWeight: FontWeight.bold
-          ),
-        ),
+        TextButton(onPressed:(){
+          showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(1980),
+              lastDate: DateTime(2011));},
+          child:const Text(
+            'Date of Birth',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ), ),  ),
 
         Container(
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(40),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(100),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 6,
+                  offset: Offset(0, 2)
+              ),],),
 
-              boxShadow: const [
-                BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 6,
-                    offset: Offset(0, 2)
-                )
-              ]
-
-
-          ),
           height: 60,
           child: TextFormField(
+
             keyboardType:TextInputType.text,
             style: const TextStyle(
                 color: Colors.black
             ),
-            decoration: const InputDecoration(
+            decoration:  const InputDecoration(
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
+
                 prefixIcon: Icon(
                   Icons.date_range_outlined,
                   color: Color(0xffb784a7),
                 ),
-                hintText:'Date of Birthday',
+                hintText: 'date of Birth',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
 
             ),
           ),
-        )
+        ),],
 
-      ],
     );
   }
   Widget contact(){
@@ -129,7 +127,7 @@ class CreateState extends State<Create>{
           'Contact',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:27,
+              fontSize:40,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -138,7 +136,7 @@ class CreateState extends State<Create>{
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(100),
 
               boxShadow: const [
                 BoxShadow(
@@ -152,7 +150,7 @@ class CreateState extends State<Create>{
           ),
           height: 60,
           child: TextFormField(
-            keyboardType:TextInputType.number,
+
             style: const TextStyle(
                 color: Colors.black
             ),
@@ -163,7 +161,7 @@ class CreateState extends State<Create>{
                   Icons.phone_android,
                   color: Color(0xffb784a7),
                 ),
-                hintText:'Phone Number',
+                hintText:'Telphone',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
@@ -231,7 +229,7 @@ class CreateState extends State<Create>{
 
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   const BoxShadow(
                       color: Colors.black,
@@ -309,7 +307,6 @@ class CreateState extends State<Create>{
                   height: double.infinity,
                   width : double.infinity,
                   decoration:const BoxDecoration(
-
                     gradient:LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -324,19 +321,19 @@ class CreateState extends State<Create>{
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        'Create Account',
+                        'Create accounte',
                         style:TextStyle(
                           color: Colors.white,
-                          fontSize: 30,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
 
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 50),
                       Name(),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 50),
 
-                      Date_Of_Birthday(),
+                      date_of_birth() ,
                       const SizedBox(height: 30),
                       contact(),
 
