@@ -18,7 +18,7 @@ class CreateState extends State<Create>{
           'Name',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:27,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -28,7 +28,7 @@ class CreateState extends State<Create>{
           alignment: Alignment.centerLeft,
           decoration:  BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(40),
               boxShadow: [
                 BoxShadow(
                     color: Colors.black,
@@ -38,6 +38,7 @@ class CreateState extends State<Create>{
               ]
           ),
           height: 60,
+
           child: TextFormField(
             keyboardType:TextInputType.emailAddress,
             style: const TextStyle(
@@ -62,17 +63,17 @@ class CreateState extends State<Create>{
       ],
     );
   }
-  Widget date_of_birth(){
+  Widget Date_Of_Birthday(){
 
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
-          'date_of_bith',
+          'Date_Of_Birthday',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:27,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -81,7 +82,7 @@ class CreateState extends State<Create>{
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(40),
 
               boxShadow: const [
                 BoxShadow(
@@ -95,7 +96,7 @@ class CreateState extends State<Create>{
           ),
           height: 60,
           child: TextFormField(
-            obscureText: true,
+            keyboardType:TextInputType.text,
             style: const TextStyle(
                 color: Colors.black
             ),
@@ -106,7 +107,7 @@ class CreateState extends State<Create>{
                   Icons.date_range_outlined,
                   color: Color(0xffb784a7),
                 ),
-                hintText:'date of birth',
+                hintText:'Date of Birthday',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
@@ -128,7 +129,7 @@ class CreateState extends State<Create>{
           'Contact',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:27,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -137,7 +138,7 @@ class CreateState extends State<Create>{
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(40),
 
               boxShadow: const [
                 BoxShadow(
@@ -151,7 +152,7 @@ class CreateState extends State<Create>{
           ),
           height: 60,
           child: TextFormField(
-            obscureText: true,
+            keyboardType:TextInputType.number,
             style: const TextStyle(
                 color: Colors.black
             ),
@@ -162,7 +163,7 @@ class CreateState extends State<Create>{
                   Icons.phone_android,
                   color: Color(0xffb784a7),
                 ),
-                hintText:'Telphone',
+                hintText:'Phone Number',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
@@ -230,7 +231,7 @@ class CreateState extends State<Create>{
 
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   const BoxShadow(
                       color: Colors.black,
@@ -308,6 +309,7 @@ class CreateState extends State<Create>{
                   height: double.infinity,
                   width : double.infinity,
                   decoration:const BoxDecoration(
+
                     gradient:LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -322,19 +324,19 @@ class CreateState extends State<Create>{
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        'Create accounte',
+                        'Create Account',
                         style:TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
 
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 30),
                       Name(),
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 30),
 
-                      date_of_birth() ,
+                      Date_Of_Birthday(),
                       const SizedBox(height: 30),
                       contact(),
 

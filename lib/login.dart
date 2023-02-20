@@ -212,16 +212,21 @@ fontWeight: FontWeight.bold,
 @override
 Widget build(BuildContext context){
 return Scaffold(
-body: AnnotatedRegion<SystemUiOverlayStyle>(
+body:AnnotatedRegion<SystemUiOverlayStyle>(
 value: SystemUiOverlayStyle.light,
 
 child: GestureDetector(
 child:Stack(
+
 children:<Widget>[
 Container(
 height: double.infinity,
 width : double.infinity,
 decoration:const BoxDecoration(
+  image: DecorationImage(
+      image: AssetImage("img/img13.jpg"),
+      fit: BoxFit.cover
+  ),
 gradient:LinearGradient(
 begin: Alignment.topCenter,
 end: Alignment.bottomCenter,

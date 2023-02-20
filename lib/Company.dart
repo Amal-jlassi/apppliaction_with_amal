@@ -33,7 +33,7 @@ class CompanyState extends State<Company> {
             decoration: BoxDecoration(
                 color: Colors.white,
 
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   const BoxShadow(
                       color: Colors.black,
@@ -87,7 +87,7 @@ class CompanyState extends State<Company> {
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(40),
               boxShadow: [
                 const BoxShadow(
                     color: Colors.black,
@@ -140,7 +140,7 @@ class CompanyState extends State<Company> {
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(40),
               boxShadow: [
                 const BoxShadow(
                     color: Colors.black,
@@ -239,7 +239,7 @@ class CompanyState extends State<Company> {
 
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   const BoxShadow(
                       color: Colors.black,
@@ -308,7 +308,7 @@ class CompanyState extends State<Company> {
               children: [DropdownButton(
 
                 // Initial Value
-                value: items[0],
+                value: items[1],
 
                 // Down Arrow Icon
                 icon:  Icon(Icons.keyboard_arrow_down),
@@ -336,7 +336,7 @@ class CompanyState extends State<Company> {
 
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   const BoxShadow(
                       color: Colors.black,
@@ -414,6 +414,9 @@ class CompanyState extends State<Company> {
                   height: double.infinity,
                   width: double.infinity,
                   decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image:AssetImage('img/img13.jpg'),
+                    ),
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
