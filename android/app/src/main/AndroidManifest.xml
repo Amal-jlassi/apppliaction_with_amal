@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apppliaction_with_amal">
+    <uses-permission android:name="android.permission.USE_BIOMETRICS"/>
+
    <application
         android:label="apppliaction_with_amal"
         android:name="${applicationName}"

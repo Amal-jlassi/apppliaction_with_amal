@@ -10,11 +10,14 @@ import 'Create.dart';
 import 'Checked.dart';
 import 'AboutUs.dart';
 import'Authentication.dart';
+import'auth_path.dart';
 
 
 void main() => runApp(const App());
 
 class App extends StatelessWidget {
+
+
   const App({Key? key}) : super(key: key);
 
   @override
@@ -28,7 +31,8 @@ class App extends StatelessWidget {
       //                '/home': (context)=> const Company(),
       //                '//':(context)=>   Create(),
       //               },
-      home: Authentification(),
+      home: AuthPath(),
+
     );
   }
 }
