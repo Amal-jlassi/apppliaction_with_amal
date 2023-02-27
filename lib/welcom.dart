@@ -1,3 +1,4 @@
+import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,65 +13,103 @@ class welcom extends StatefulWidget {
 }
 class welcomState extends State<welcom>{
   @override
-
-  Widget build (BuildContext context){
-    return initWiddget();
+  double initial=0.0;
+  void update(){
+    Timer.periodic(const Duration(milliseconds :100) ,(Timer){
+      setState(() {
+        initial= initial+0.01;
+      });
+    });
   }
- Widget initWiddget(){
-    return Scaffold(
+  Widget step(){
+    return Column(
+      children: const [
+        Text(
+            "go to login"
+        ),
+        SizedBox(height: 20.0,)
+      ],
+    );
+  }
+  Widget build (BuildContext context){
+    update();
+    height: MediaQuery.of (context).size.height;
+    width: MediaQuery.of(context).size.height;
 
-     body:Stack(
-        children:[
+    return initWidget();
+  }
+  Widget initWidget() {
+    return Scaffold(
+      appBar: AppBar(
+
+        elevation: 10,
+
+        backgroundColor: Color(0xffe5e4e2),
+        leading: Container(
+             height: 20,
+          child: Image.asset('lib/icons/logo1.png'),
+        ),
+      ),
+
+      body: Stack(
+        children: [
 
 
           Container(
+
             height: double.infinity,
-            width : double.infinity,
+            width: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xffda70d6),
-              gradient: LinearGradient(
-                colors: [new Color(0xfffdc1c5), new Color(0xffda70d6),],
-                begin: Alignment.topCenter,
-                end:Alignment.bottomCenter
-              )
+              image: DecorationImage(
+                  image: AssetImage("img/img30.jpg"),
+
+                  fit: BoxFit.cover
+              ),
+
             ),
-          child: Column(
+            child: Column(
+
               mainAxisAlignment: MainAxisAlignment.center,
 
-             children:  <Widget>[
-               Center(
-                   child:  CircularPercentIndicator(
-                   animation: true,
-                     radius:200,
-                     lineWidth:20,
-                    percent:0.4,
-                   progressColor: Colors.purpleAccent,
-                     backgroundColor:Colors.white60,
-                     circularStrokeCap: CircularStrokeCap.round,
-                   center: const Text('40%',style: TextStyle(fontSize: 40,color: Colors.white),),
-                 ),
-               ),
-            Center(
-                   child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.purpleAccent,
-                        onPrimary: Colors.white,
-       ),
-   child: const Text('Dev-Work'),
-   onPressed: () {
-   Navigator.pushNamed(context, '/second');}
+              children: <Widget>[
 
-    ),
 
-    ),
-    ],
+                Center(
+
+                  child: CircularProgressIndicator(
+
+                    backgroundColor: Colors.purpleAccent,
+                    valueColor: const AlwaysStoppedAnimation(Colors.white30),
+                    value: initial,
+                    strokeWidth: 10.0,
+
+                  ),
+                ),
+                Center(
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/second');
+                      }, child: const Text(
+                    'Dev-Work',
+                    style: TextStyle(
+                      fontSize: 50,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    )
+                    ,)
+
+                  ),
+
+                ),
+              ],
+
+            ),
 
           ),
 
-   ),
+        ],
+      ),
 
- ],
-     ),  );
-
- }
+    );
+  }
 }

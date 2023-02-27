@@ -1,30 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 class Create extends StatefulWidget {
-
-
+  const Create({super.key});
   @override
   CreateState createState() => CreateState();
 }
-
 class CreateState extends State<Create>{
-  Widget Name(){
+  List<String>? items;
+  String? initValue;
 
+  @override
+  void showDatepiker(){
+    showDatePicker(context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1980),
+      lastDate: DateTime(2011),
+    );
+  }
+  void initState() {
+    // TODO: implement initState
+    items = [
+      'select skills',
+      'flutter',
+      'Laravel',
+      'Angular',
+      'React JS',
+      'Java',
+    ];
+    initValue = items![0] ;
+    super.initState();
+  }
+  Widget Name(){
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
           'Name',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:18,
               fontWeight: FontWeight.bold
           ),
         ),
-
         Container(
-
           alignment: Alignment.centerLeft,
           decoration:  BoxDecoration(
               color: Colors.white,
@@ -39,7 +56,6 @@ class CreateState extends State<Create>{
           ),
           height: 60,
           child: TextFormField(
-            keyboardType:TextInputType.emailAddress,
             style: const TextStyle(
                 color: Colors.black
             ),
@@ -54,91 +70,33 @@ class CreateState extends State<Create>{
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
-
             ),
           ),
         )
-
       ],
     );
   }
-  Widget date_of_birth(){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget> [
-        TextButton(onPressed:(){
-          showDatePicker(
-              context: context,
-              initialDate: DateTime.now(),
-              firstDate: DateTime(1980),
-              lastDate: DateTime(2011));},
-          child:const Text(
-            'Date of Birth',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ), ),  ),
-
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: const [
-              BoxShadow(
-                  color: Colors.black,
-                  blurRadius: 6,
-                  offset: Offset(0, 2)
-              ),],),
-
-          height: 60,
-          child: TextFormField(
-
-            keyboardType:TextInputType.text,
-            style: const TextStyle(
-                color: Colors.black
-            ),
-            decoration:  const InputDecoration(
-                border: InputBorder.none,
-
-                prefixIcon: Icon(
-                  Icons.date_range_outlined,
-                  color: Color(0xffb784a7),
-                ),
-                hintText: 'date of Birth',
-                hintStyle: TextStyle(
-                    color: Colors.black38
-                )
-
-            ),
-          ),
-        ),],
-
-    );
-  }
-  Widget contact(){
-
+  Widget emailField(){
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+
       children: <Widget> [
         const Text(
-          'Contact',
+          'Email',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:20,
               fontWeight: FontWeight.bold
           ),
         ),
 
         Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
+
+          alignment: Alignment.center,
+          decoration:  BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(100),
-
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
                     color: Colors.black,
                     blurRadius: 6,
@@ -150,7 +108,7 @@ class CreateState extends State<Create>{
           ),
           height: 60,
           child: TextFormField(
-
+            keyboardType:TextInputType.emailAddress,
             style: const TextStyle(
                 color: Colors.black
             ),
@@ -158,10 +116,10 @@ class CreateState extends State<Create>{
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14),
                 prefixIcon: Icon(
-                  Icons.phone_android,
+                  Icons.email,
                   color: Color(0xffb784a7),
                 ),
-                hintText:'Telphone',
+                hintText:'Email',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
@@ -173,60 +131,136 @@ class CreateState extends State<Create>{
       ],
     );
   }
-  Widget buildSkills() {
-    String initValue = 'skills item';
-    var items = [
-      'select skills',
-      'flutter',
-      'Laravel',
-      'Angular',
-      'React JS',
-      'Java',
-    ];
+
+  Widget date_of_birth(){
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget> [
+        const Text(
+          'Date of Birth',
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ), ),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(100),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 6,
+                  offset: Offset(0, 2)
+              ),],),
+          height: 60,
+          child: TextFormField(
+              keyboardType:TextInputType.datetime,
+              style: const TextStyle(
+                  color: Colors.black
+              ),
+              decoration:  const InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'date of Birth',
+                  prefixIcon: Icon(
+                    Icons.date_range_outlined,
+                    color: Color(0xffb784a7),
+                  ),
+                  hintStyle: TextStyle(
+                      color: Colors.black38
+                  )
+              ),
+              onTap:(){
+                showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1980),
+                    lastDate: DateTime(2011) as DateTime) ;
+              }
+          ),
+        ),],
+    );
+  }
+  Widget contact(){
+    return Column(
+      children: <Widget> [
+        const Text(
+          'Contact',
+          style: TextStyle(
+              color: Colors.white70,
+              fontSize:20,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(100),
+              boxShadow: const [
+                BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 6,
+                    offset: Offset(0, 2)
+                )
+              ]
+          ),
+          height: 60,
+          child: TextFormField(
+            keyboardType:TextInputType.number,
+            style: const TextStyle(
+                color: Colors.black
+            ),
+            decoration: const InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14),
+                prefixIcon: Icon(
+                  Icons.phone_android,
+                  color: Color(0xffb784a7),
+                ),
+                hintText:'Phone Number',
+                hintStyle: TextStyle(
+                    color: Colors.black38
+                )
+            ),
+          ),
+        )
+      ],
+    );
+  }
+  Widget buildFramework() {
+    return Column(
         children: <Widget>[
           const Text(
-            'Skills',
+            'Framework',
             style: TextStyle(
                 color: Colors.white70,
-                fontSize: 27,
+                fontSize: 20,
                 fontWeight: FontWeight.bold
             ),
           ),
-
           Container(height:60,
             width: 500,
             child: Column(
               children: [DropdownButton(
-
-                // Initial Value
-                value: items[0],
-
-                // Down Arrow Icon
+                value: initValue,
                 icon:  Icon(Icons.keyboard_arrow_down),
-
-                // Array list of items
-                items: items.map((item)
+                items: items!.map((item)
                 {
                   return DropdownMenuItem(
                     value: item,
                     child: Text(item),
                   );
                 }).toList(),
-                // After selecting the desired option,it will
-                // change button value to selected value
                 onChanged: (String? newValue) {
                   setState(() {
+                    print("newValue is : "+newValue!);
                     initValue = newValue!;
-
                   });
                 },
               ),
               ],
             ),
-
-
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -237,36 +271,10 @@ class CreateState extends State<Create>{
                       offset: Offset(0, 2)
                   )
                 ]
-
-
             ),
-            //     height: 60,
-            //
-            //
-            //     child: TextFormField(
-            //       keyboardType: TextInputType.text,
-            //       style: const TextStyle(
-            //           color: Colors.black
-            //       ),
-            //       decoration: const InputDecoration(
-            //           border: InputBorder.none,
-            //
-            //           prefixIcon: Icon(
-            //             Icons.maps_home_work,
-            //             color: Color(0xffb784a7),
-            //           ),
-            //           hintText: 'Flutter / Laravel / Angular /',
-            //           hintStyle: TextStyle(
-            //               color: Colors.black38
-            //           )
-            //
-          ),
-        ]
-      //),
-      //]
-    );
+          ), ] );
   }
-  Widget buildLoginBtn() {
+  Widget buildCreate() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
       width : 150,
@@ -274,13 +282,11 @@ class CreateState extends State<Create>{
       child: ElevatedButton(
           onPressed:() {
             print("Create Pressed");
-            Navigator.pushNamed(context, '/second');
-
+            Navigator.pushNamed(context, '/home');
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.blueGrey,
-            onPrimary: Colors.white,
-            side: const BorderSide(color: Colors.white54, width: 5),
+            primary: Colors.purple,
+
           ),
           child: const Text(
             'Create',
@@ -294,60 +300,140 @@ class CreateState extends State<Create>{
       ),
     );
   }
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle.light,
-
-          child: GestureDetector(
-            child:Stack(
-              children:<Widget>[
-                Container(
-                  height: double.infinity,
-                  width : double.infinity,
-                  decoration:const BoxDecoration(
-                    gradient:LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors:[
-                          Color(0xffcd96cd),
-                          Color(0xffe5e4e2),
-                          Color(0xffe5e4e2),
-                          Color(0xffcd96cd),]
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
-                        'Create accounte',
-                        style:TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      const SizedBox(height: 50),
-                      Name(),
-                      const SizedBox(height: 50),
-
-                      date_of_birth() ,
-                      const SizedBox(height: 30),
-                      contact(),
-
-                      const SizedBox(height: 30),
-                      buildSkills(),
-                      buildLoginBtn(),
+  Widget buildNext() {
+    return Column(
+        children:[
+          Container(
+            padding: EdgeInsets.all(45),
+            alignment: Alignment.bottomCenter,
+            child:IconButton(onPressed: (){},
+              icon: Icon( Icons.add) ,color: Colors.blue.shade600,focusColor:Colors.cyanAccent,iconSize: 50,),
+          ),
+          BottomAppBar(
+              shape: CircularNotchedRectangle(),
+              notchMargin: 20,
+              child: Container(
+                  height: 60,
+                  child: Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    children:<Widget> [
+                      Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            MaterialButton(onPressed: () {},
+                              minWidth: 40,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.dashboard_customize,color:Colors.grey,),
+                                  Text(
+                                      "Dashboard",
+                                      style: TextStyle(color: Colors.grey)
+                                  )
+                                ],
+                              ),
+                            ),
+                            MaterialButton(onPressed: () {},
+                              minWidth: 40,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.face,color:Colors.grey,),
+                                  Text(
+                                      "profil",
+                                      style: TextStyle(color: Colors.grey)
+                                  )
+                                ],
+                              ),
+                            ),
+                            MaterialButton(onPressed: () {},
+                              minWidth: 40,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.settings,color:Colors.grey,),
+                                  Text(
+                                      "setting",
+                                      style: TextStyle(color: Colors.grey)
+                                  )
+                                ],
+                              ),
+                            ),
+                            MaterialButton(onPressed: () {},
+                              minWidth: 40,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.search,color:Colors.grey,),
+                                  Text(
+                                      "search",
+                                      style: TextStyle(color: Colors.grey)
+                                  )
+                                ],
+                              ),
+                            ),
+                          ]
+                      )
                     ],
+                  )
+
+              )
+          ),
+
+        ]);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: GestureDetector(
+
+          child: Stack(
+            children: <Widget>[
+              Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("img/img30.jpg"),
+                      fit: BoxFit.cover
                   ),
 
                 ),
-              ],
-            ),
+                child: SingleChildScrollView(
+                  child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:  <Widget>[
+                    const Text(
+                      'Create Account',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height:30),
+                    Name(),
+                    const SizedBox(height:10),
+                    emailField(),
+                    const SizedBox(height:10),
+                    date_of_birth(),
+                    const SizedBox(height:10),
+                    contact(),
+                    const SizedBox(height: 10),
+                    buildFramework(),
+                    buildCreate(),
+                    const SizedBox(height: 10),
+                    buildNext()
+                  ],
+                ),
+                ),
+              ),
+            ],
           ),
-        )
-    );
+        ),
+      ),);
   }
 }
