@@ -40,18 +40,10 @@ class welcomState extends State<welcom>{
   }
   Widget initWidget() {
     return Scaffold(
-      appBar: AppBar(
 
-        elevation: 10,
 
-        backgroundColor: Color(0xffe5e4e2),
-        leading: Container(
-             height: 20,
-          child: Image.asset('lib/icons/logo1.png'),
-        ),
-      ),
-
-      body: Stack(
+      body:
+      Stack(
         children: [
 
 
@@ -103,13 +95,13 @@ class welcomState extends State<welcom>{
                 ),
               ],
 
+
             ),
 
           ),
 
         ],
       ),
-
     );
   }
 }

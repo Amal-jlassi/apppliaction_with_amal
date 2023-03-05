@@ -84,12 +84,12 @@ class CompanyState extends State<Company> {
         ]
     );
   }
-  Widget buildContactdetails() {
+  Widget buildContact() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const Text(
-          'ContactDetails',
+          'Contact',
           style: TextStyle(
               color: Colors.white70,
               fontSize: 27,
@@ -145,7 +145,7 @@ class CompanyState extends State<Company> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const Text(
-          'Description',
+          'Description ',
           style: TextStyle(
               color: Colors.white70,
               fontSize: 20,
@@ -267,9 +267,10 @@ class CompanyState extends State<Company> {
   }
 
 
-  Widget buildSkills() {
+  Widget buildFramework() {
 
     return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const Text(
             'Framework',
@@ -324,6 +325,7 @@ class CompanyState extends State<Company> {
       ElevatedButton(
 
           onPressed: () {},
+
           style: ElevatedButton.styleFrom(
 
             primary: Color(0xffb784a7),
@@ -382,13 +384,13 @@ class CompanyState extends State<Company> {
                       ),
                       const SizedBox(height:30)  ,buildCompany(),
                       const SizedBox(height: 10),
-                      buildContactdetails(),
+                      buildContact(),
                       const SizedBox(height: 10),
                       buildDescription(),
                       const SizedBox(height: 10),
                       buildWorkType(),
                       const SizedBox(height: 10),
-                      buildSkills(),
+                      buildFramework(),
 
                       const SizedBox(height: 30),
                       buildAddBtn(),

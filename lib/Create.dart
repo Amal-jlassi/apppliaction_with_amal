@@ -32,6 +32,7 @@ class CreateState extends State<Create>{
   }
   Widget Name(){
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
           'Name',
@@ -79,7 +80,7 @@ class CreateState extends State<Create>{
   Widget emailField(){
 
     return Column(
-
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
           'Email',
@@ -132,11 +133,13 @@ class CreateState extends State<Create>{
     );
   }
 
-  Widget date_of_birth(){
+  Widget Date_of_Birthday(){
+
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
-          'Date of Birth',
+          'Date of Birthday',
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
@@ -183,6 +186,7 @@ class CreateState extends State<Create>{
   }
   Widget contact(){
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
           'Contact',
@@ -230,6 +234,7 @@ class CreateState extends State<Create>{
   }
   Widget buildFramework() {
     return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const Text(
             'Framework',
@@ -419,7 +424,7 @@ class CreateState extends State<Create>{
                     const SizedBox(height:10),
                     emailField(),
                     const SizedBox(height:10),
-                    date_of_birth(),
+                    Date_of_Birthday(),
                     const SizedBox(height:10),
                     contact(),
                     const SizedBox(height: 10),

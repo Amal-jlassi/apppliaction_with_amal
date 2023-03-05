@@ -1,79 +1,86 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Developer extends StatefulWidget {
+  const Developer({super.key});
 
   @override
-  HomeState createState() => HomeState();
+  DeveloperState createState() => DeveloperState();
 }
 
-class HomeState extends State<Home>{
-
-  Widget buildCompetence(){
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget> [
-        const Text(
-          'Compétance',
-          style: TextStyle(
-              color: Colors.white70,
-              fontSize:40,
-              fontWeight: FontWeight.bold
-          ),
-        ),
-
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                const BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 6,
-                    offset: Offset(0, 2)
-                )
-              ]
-
-
-          ),
-          height: 60,
-          child: TextFormField(
-            keyboardType:TextInputType.text,
-            style: const TextStyle(
-                color: Colors.black
-            ),
-            decoration: const InputDecoration(
-                border: InputBorder.none ,
-                contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(
-                  Icons.hardware,
-                  color: Color(0xffb784a7),
-                ),
-                hintText: 'Compétence',
-                hintStyle: TextStyle(
-                    color: Colors.black38
-                )
-
-
-            ),
-          ),
-        ),
-      ],
-    );
+class DeveloperState extends State<Developer>{
+  List<String>? items;
+  String? initValue;
+  void initState() {
+    // TODO: implement initState
+    items = [
+      'select skills',
+      'flutter',
+      'Laravel',
+      'Angular',
+      'React JS',
+      'Java',
+    ];
+    initValue = items![0] ;
+    super.initState();
   }
-  Widget buildTypedeTravail(){
 
+  Widget buildFramework() {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Text(
+            'Framework',
+            style: TextStyle(
+                color: Colors.white70,
+                fontSize: 27,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+          Container(height:60,
+            width: 500,
+            child: Column(
+              children: [DropdownButton(
+                value: initValue,
+                icon:  Icon(Icons.keyboard_arrow_down),
+                items: items!.map((item)
+                {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    print("newValue is : "+newValue!);
+                    initValue = newValue!;
+                  });
+                },
+              ),
+              ],
+            ),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  const BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 6,
+                      offset: Offset(0, 2)
+                  )
+                ]
+            ),
+          ), ] );
+  }
+  Widget buildWorkType(){
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
-          'Type de travail',
+          'Work Type',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:27,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -105,7 +112,7 @@ class HomeState extends State<Home>{
                   Icons.work,
                   color: Color(0xffb784a7),
                 ),
-                hintText: 'Type de Travail',
+                hintText: 'Work Type',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
@@ -123,10 +130,10 @@ class HomeState extends State<Home>{
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
         const Text(
-          'Région',
+          'Place',
           style: TextStyle(
               color: Colors.white70,
-              fontSize:40,
+              fontSize:27,
               fontWeight: FontWeight.bold
           ),
         ),
@@ -160,7 +167,7 @@ class HomeState extends State<Home>{
                   Icons.maps_home_work,
                   color: Color(0xffb784a7),
                 ),
-                hintText: 'Région',
+                hintText: 'Place',
                 hintStyle: TextStyle(
                     color: Colors.black38
                 )
@@ -172,34 +179,39 @@ class HomeState extends State<Home>{
       ],
     );
   }
-  Widget buildRechercheBtn(){
+  Widget buildSearchBtn(){
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      width : 150,
+      width: 200,
       height: 100,
-    child:
+      child:
 
       ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).pop();
 
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Colors.blueGrey,
-          onPrimary: Colors.white,
-          side: BorderSide(color: Colors.white54, width: 5),
-        ),
-        child: const Text(
-          'Rechercher',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          )
-          ,),
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+
+            primary: Color(0xffb784a7),
+            // onPrimary: Colors.white,
+            //           side: BorderSide(color: Colors.white54, width: 5),
+          ),
+
+
+          child:
+
+
+          const Text(
+            'Search',
+            style: TextStyle(fontSize: 20),)
+
       ),
+
+
+
+
     );
   }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -212,21 +224,18 @@ class HomeState extends State<Home>{
                   height: double.infinity,
                   width : double.infinity,
                   decoration:const BoxDecoration(
-                    gradient:LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors:[
-                          Color(0xffcd96cd),
-                          Color(0xffe5e4e2),
-                          Color(0xffe5e4e2),
-                          Color(0xffcd96cd),]
+                    image: DecorationImage(
+                        image: AssetImage("img/img30.jpg"),
+                        fit: BoxFit.cover
                     ),
+
                   ),
+              child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        'Espace Développeur',
+                        'Developer Space',
                         style:TextStyle(
                           color: Colors.white,
                           fontSize: 40,
@@ -234,19 +243,20 @@ class HomeState extends State<Home>{
                         ),
                       ),
                       const SizedBox(height: 50),
-                      buildCompetence(),
+                      buildFramework(),
                       const SizedBox(height: 50),
 
-                      buildTypedeTravail() ,
+                      buildWorkType() ,
                       const SizedBox(height: 50),
 
                       buildRegion(),
 
                       const SizedBox(height: 30),
 
-                      buildRechercheBtn(),
+                      buildSearchBtn(),
                     ],
                   ),
+                ),
                 ),
               ],
             ),

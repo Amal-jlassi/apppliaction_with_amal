@@ -89,79 +89,20 @@ class _CheckedState extends State<Checked> {
 
      );
    }
-//
-//   Widget buildDeveloper() {
-//     return Container(
-//       alignment: Alignment.center,
-//         decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(40),),
-//
-//     height: 40,
-//       child: Row(
-//         children: <Widget>[
-//           Theme(
-//             data: ThemeData(unselectedWidgetColor: Colors.white),
-//
-//             child: Checkbox(
-//                 value: isDeveloper,
-//                 checkColor: Colors.black,
-//                 activeColor: Colors.black38,
-//                 onChanged: (value) {
-//                   setState(() {
-//                     isDeveloper = value!;
-//                   });
-//                 }),
-//           ),
-//           const Text(
-//             'Choose Developer ',
-//             style: TextStyle(
-//               color: Colors.black,
-//               fontWeight: FontWeight.bold,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-//
-//   Widget buildCompany() {
-//     return Container(
-//       alignment: Alignment.center,
-//       decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(40),),
-//
-//       height: 40,
-//       child: Row(
-//         children: <Widget>[
-//           Theme(
-//             data: ThemeData(unselectedWidgetColor: Colors.white),
-//             child: Checkbox(
-//                 value: isCompany,
-//                 checkColor: Colors.black,
-//                 activeColor: Colors.black38,
-//                 onChanged: (value) {
-//                   setState(() {
-//                     isCompany = value!;
-//                   });
-//                 }),
-//           ),
-//           const Text(
-//             'Choose Company',
-//             style: TextStyle(
-//               color: Colors.black,
-//               fontWeight: FontWeight.bold,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-//
+
    @override
   Widget build(BuildContext context){
    return Scaffold(
+       appBar: AppBar(
+
+         elevation: 10,
+
+         backgroundColor:  Colors.white,
+         leading: Container(
+           height: 20,
+           child: Image.asset('lib/icons/logo1.png'),
+         ),
+       ),
          body:AnnotatedRegion<SystemUiOverlayStyle>(
            value: SystemUiOverlayStyle.light,
 
