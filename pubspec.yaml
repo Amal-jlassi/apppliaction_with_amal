@@ -64,6 +64,10 @@ flutter:
   assets:
     - img/img30.jpg
     - lib/icons/logo1.png
+    - img/img21.jpg
+    - img/img99.png
+    - img/img101.png
+    - img/img102.jpg
   #assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

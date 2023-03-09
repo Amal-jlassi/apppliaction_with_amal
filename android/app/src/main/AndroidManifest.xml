@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apppliaction_with_amal">
+    <uses-permission android:name="android.permission.USE_INTERNET"/>
     <uses-permission android:name="android.permission.USE_BIOMETRICS"/>
+    <uses-permission android:name="android.permission.USE_CAMERA"/>
+    <uses-permission android:name="android.permission.USE_FINGEPRINT"/>
 
    <application
         android:label="apppliaction_with_amal"

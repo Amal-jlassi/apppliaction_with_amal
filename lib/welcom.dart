@@ -53,7 +53,7 @@ class welcomState extends State<welcom>{
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("img/img30.jpg"),
+                  image: AssetImage("img/img29.jpg"),
 
                   fit: BoxFit.cover
               ),
@@ -64,6 +64,16 @@ class welcomState extends State<welcom>{
               mainAxisAlignment: MainAxisAlignment.center,
 
               children: <Widget>[
+                Container(
+                  // margin: EdgeInsets.only(bottom:10),
+                  // height: 100,
+                  // decoration: BoxDecoration(
+                  //   //shape: BoxShape.circle,
+                  //   image:DecorationImage(
+                  //     image:AssetImage('img/img44.png'),
+                  //   ),
+                  // ),
+                ),
 
 
                 Center(
@@ -82,7 +92,7 @@ class welcomState extends State<welcom>{
                       onPressed: () {
                         Navigator.pushNamed(context, '/second');
                       }, child: const Text(
-                    'Dev-Work',
+                    'WELCOME',
                     style: TextStyle(
                       fontSize: 50,
                       color: Colors.white,

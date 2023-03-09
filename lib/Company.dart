@@ -11,7 +11,9 @@ class Company extends StatefulWidget {
 
 class CompanyState extends State<Company> {
   List<String>? items;
+  List<String>? itemsWork;
   String? initValue;
+  String? initValue_Work;
   @override
   void initState() {
     // TODO: implement initState
@@ -23,6 +25,15 @@ class CompanyState extends State<Company> {
       'React JS',
       'Java',
     ];
+    itemsWork = [
+      'select Work Type',
+      'CDD',
+      'CDI',
+      'FREELANCE',
+      'STAGE PRE-EMBAUCHE',
+    ];
+     initValue = itemsWork![0];
+
     initValue = items![0] ;
     super.initState();
   }
@@ -198,14 +209,7 @@ class CompanyState extends State<Company> {
 
 
   Widget buildWorkType() {
-    String initValue = 'Work Type';
-    var items = [
-      'select Work Type',
-      'CDD',
-      'CDI',
-      'FREELANCE',
-      'STAGE PRE-EMBAUCHE',
-    ];
+
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -223,13 +227,13 @@ class CompanyState extends State<Company> {
               children: [DropdownButton(
 
                 // Initial Value
-                value: items[0],
+                value: itemsWork![0],
 
                 // Down Arrow Icon
                 icon:  Icon(Icons.keyboard_arrow_down),
 
                 // Array list of items
-                items: items.map((item)
+                items: itemsWork!.map((item)
                 {
                   return DropdownMenuItem(
                     value: item,
@@ -359,7 +363,6 @@ class CompanyState extends State<Company> {
             child: Stack(
               children: <Widget>[
                 Container(
-                  height: double.infinity,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -369,7 +372,7 @@ class CompanyState extends State<Company> {
 
 
                   ),
-                  child: SingleChildScrollView(
+
 
                     child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -378,11 +381,13 @@ class CompanyState extends State<Company> {
                         'Company Space',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 30,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height:30)  ,buildCompany(),
+
+                      const SizedBox(height:10),
+                       buildCompany(),
                       const SizedBox(height: 10),
                       buildContact(),
                       const SizedBox(height: 10),
@@ -397,7 +402,7 @@ class CompanyState extends State<Company> {
                    ],
                   ),
                 ),
-                ),   ],
+                   ],
             ),
           ),
         )

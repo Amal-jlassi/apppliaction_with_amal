@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:apppliaction_with_amal/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,18 +23,11 @@ class _LoginState extends State<Login>{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
-        const Text(
-          'Email',
-          style: TextStyle(
-              color: Colors.white70,
-              fontSize:27,
-              fontWeight: FontWeight.bold
-          ),
-        ),
 
         Container(
 
           alignment: Alignment.centerLeft,
+
           decoration:  BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(100),
@@ -47,7 +41,7 @@ class _LoginState extends State<Login>{
 
 
           ),
-          height: 60,
+          height: 70,
           child: TextFormField(
             keyboardType:TextInputType.emailAddress,
             style: const TextStyle(
@@ -78,14 +72,6 @@ class _LoginState extends State<Login>{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget> [
-        const Text(
-          'Password',
-          style: TextStyle(
-              color: Colors.white70,
-              fontSize:27,
-              fontWeight: FontWeight.bold
-          ),
-        ),
 
         Container(
           alignment: Alignment.centerLeft,
@@ -103,7 +89,7 @@ class _LoginState extends State<Login>{
 
 
           ),
-height: 60,
+height: 70,
 child: TextFormField(
 obscureText: true,
 style: const TextStyle(
@@ -146,7 +132,7 @@ color: Colors.black38
 
                 value: isRemenberMe,
                 checkColor: Colors.black,
-                activeColor: Colors.white,
+                activeColor: Colors.black,
                 onChanged: (value){
                   setState(() {
                     isRemenberMe= value!;
@@ -156,7 +142,7 @@ color: Colors.black38
           const Text(
             'Remember me',
             style:TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -171,10 +157,10 @@ color: Colors.black38
           RichText(
             text:const TextSpan(
                 children: [
-                  TextSpan (text:"don\'t have an Account ?  ",
+                  TextSpan (text:"Don\'t have an Account ?  ",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
+                        color: Colors.black45,
+                        fontSize: 17,
                         fontWeight: FontWeight.w500,
                       )
                   ),
@@ -186,8 +172,8 @@ color: Colors.black38
             child:Text(
               'Create Account',
               style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
+                fontSize: 19,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -206,12 +192,12 @@ color: Colors.black38
             Navigator.pushNamed(context, '/home');
           },
           style: ElevatedButton.styleFrom(
-            primary:  Color(0xffb784a7),
+            primary:  Colors.white70,
 
            // side: const BorderSide(color: Colors.white54, width: 5),
           ),
           child: const Text(
-            'login',
+            'Login',
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -221,81 +207,75 @@ color: Colors.black38
       ),
     );
   }
-  Widget buildNext() {
-    return Column(
-        children:[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                  margin:  const EdgeInsets.only(left:80.0, right:10.0),
 
-                  alignment: Alignment.centerLeft,
-                  child:  TextButton(onPressed: (){Navigator.pop(context); },
-                      child:const Icon(Icons.dashboard_customize_rounded,color: Colors.white,size: 50,) )
-              ),
-              Container(
-                  margin:  const EdgeInsets.only(left:10.0, right:10.0),
-
-                  child: TextButton(onPressed: (){Navigator.pop(context); },
-                      child:const Icon(Icons.home,color: Colors.white,size: 50,)
-                  )   ),
-              Container(
-                margin:  const EdgeInsets.only(left: 20.0, right:80.0),
-                alignment: Alignment.centerRight,
-                child: TextButton(onPressed: (){Navigator.pushNamed(context,'/home');
-                },
-                    child:const Icon(Icons.navigate_next,color: Colors.white,size: 50,)
-                ),
-              ),
-            ],),]);
-  }
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+backgroundColor:Colors.white70,
+      resizeToAvoidBottomInset: true,
         body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light,
           child: GestureDetector(
             child:Stack(
+
               children:<Widget>[
-                Container(
-                  height: double.infinity,
-                  width : double.infinity,
-                  decoration:const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("img/img30.jpg"),
-                        fit: BoxFit.cover
+
+
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    height: 20,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image:DecorationImage(
+                        image:AssetImage('lib/icons/logo1.png'),
+                      ),
                     ),
 
-                  ),
+                  //height: double.infinity,
+          //           width : double.infinity
+
+                  //decoration:const BoxDecoration(
+                  //
+                  //                      image: DecorationImage(
+                  //                         image: AssetImage("img/img21.jpg"),
+                  //                         fit: BoxFit.cover
+                  //                     ),
+                  //
+                  //             ),
+
+
+
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+
                       const Text(
                         'Sign Up',
                         style:TextStyle(
                           color: Colors.white,
-                          fontSize: 30,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height:30),
+
+
+                      const SizedBox(height:100),
                       _emailField(),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 50),
 
                       buildPassword() ,
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
                       buildRememberCb(),
                       const SizedBox(height: 30),
                       buildLoginBtn(),
                       buildSignUpBtn(),
                       const SizedBox(height: 110),
-                      buildNext(),
+
                     ],
                   ),
 
                 ),
+
               ],
             ),
           ),
