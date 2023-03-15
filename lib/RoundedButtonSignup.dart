@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-class RoundedButton extends StatelessWidget {
-  const RoundedButton(
+class RoundedButtonSignup extends StatelessWidget {
+  const RoundedButtonSignup(
       {Key? key, this.press, this.textColor = Colors.black45, required this.text})
       : super(key: key);
   final String text;
@@ -31,7 +31,7 @@ class RoundedButton extends StatelessWidget {
       ),
       onPressed: press,
       style: ElevatedButton.styleFrom(
-          primary: Color(0xff4666FFF),
+          primary: Colors.grey,
           padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
           textStyle: TextStyle(
               letterSpacing: 2,

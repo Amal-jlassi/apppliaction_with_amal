@@ -1,4 +1,5 @@
  import 'package:apppliaction_with_amal/Company.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
  import 'package:flutter/material.dart';
  import 'package:flutter/services.dart';
 
@@ -11,8 +12,91 @@
 
  }
   class _AboutUsState extends State<AboutUs> {
+    @override
+    Widget build(BuildContext context) {
+      Size size = MediaQuery
+          .of(context)
+          .size;
+      return SafeArea(
+        child: Scaffold(
+          bottomNavigationBar: CurvedNavigationBar(backgroundColor: Colors.grey,
+            items: [
+
+              GestureDetector(onTap : (){ Navigator.pushNamed(context, '/home');}, child: Icon(Icons. home)),
+              GestureDetector (onTap : (){ Navigator.pushNamed(context, '/second');}, child :Icon(Icons.add)),
+              GestureDetector (onTap : () { Navigator.pushNamed(context, '/home');}, child :Icon(Icons.search)),
+            ],
+          ) ,
+          backgroundColor: Color(0xff5dc9b7),
+          body: SizedBox(
+            width: size.width,
+            height: size.height,
+            child: SingleChildScrollView(
+              child: Stack(
+                children: [
+                  Container(
+                    height: 250,
+                    width: 600,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('img/img111.jpg'),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:   const EdgeInsets. only(top: 320.0),
+                    child: Container(
+                      width:
+                      double.infinity,
+
+                      decoration: const BoxDecoration(
+                        color: Colors.white70,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(50),
+                          bottomLeft: Radius.circular(50),
+                          bottomRight: Radius.circular(50),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            "Welcome Back! \n"
+                            'We are two students in university, qui cree cette application dans\n'
+                                'le cas de realiser notre projet de fin detude .\n'
+                                'hhqhxiijhqshxjjjjjjjjjjjjjjxbbxxbb \n'
+                                'bhdhhhhdhhdhdhhd \n'
+                                'hhdhhyzjzkoos\n'
+                                'vwwbwhytueinx qlqoehrh \n'
+                                'hdhhdh\n ',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontFamily: 'OpenSans',
+                                fontSize:16,
+                                fontWeight: FontWeight.w600),
+                          ),
+
+
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+  }
+
 //
-    Widget AboutUs() {
+  /*  Widget AboutUs() {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
        children: <Widget>[
@@ -126,3 +210,4 @@
       );
     }
   }
+*/

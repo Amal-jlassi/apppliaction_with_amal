@@ -14,7 +14,7 @@ class RoundedIcon extends StatelessWidget {
             color: Colors.white,
             boxShadow: const [
               BoxShadow(
-                  color: Colors.black26,offset: Offset(0,2),blurRadius: 0.6
+                  color: Colors.white,offset: Offset(0,2),blurRadius: 0.6
               ),
             ],
             image: DecorationImage(

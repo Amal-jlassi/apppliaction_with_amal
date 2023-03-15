@@ -1,32 +1,59 @@
 
+import 'package:apppliaction_with_amal/AboutUs.dart';
+import 'package:apppliaction_with_amal/RecherchePage.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'My_Drawer_Header.dart';
 import 'DashboardPage.dart';
 import 'ContactsPage.dart';
 import 'SettingsPage.dart';
-
+import 'RecherchePage.dart';
+import 'AboutUs.dart';
+import 'ProfilePage.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   var currentPage = DrawerSections.dashboard;
+  var listDropDown = [
+  'profile',
+  'dashboard',
+  'search',
+  'about_us',
+  'settings',
+
+];
   @override
   Widget build(BuildContext context) {
     var container;
-    if (currentPage == DrawerSections.dashboard) {
+    if (currentPage == DrawerSections.profile) {
+      container = ProfilePage();
+    }else if (currentPage == DrawerSections.dashboard) {
       container = DashboardPage();
-    } else if (currentPage == DrawerSections.contacts) {
-      container = ContactsPage();
+    } else if (currentPage == DrawerSections.search) {
+      container = RecherchePage();
+
+    } else if (currentPage == DrawerSections.about_us) {
+      container = AboutUs();
     } else if (currentPage == DrawerSections.settings) {
-      container = SettingsPage();
+      container = SettingsOnePage();
 
     }
     return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(backgroundColor: Colors.grey,
+        items: [
+
+        GestureDetector(onTap : (){ Navigator.pushNamed(context, '/home');}, child: Icon(Icons. home)),
+         GestureDetector (onTap : (){ Navigator.pushNamed(context, '/second');}, child :Icon(Icons.add)),
+          GestureDetector (onTap : () { Navigator.pushNamed(context, '/home');}, child :Icon(Icons.search)),
+      ],
+      ) ,
       appBar: AppBar(
-        backgroundColor: Color (0xff5dc9b7),
+        backgroundColor: Colors.grey,
         title: Text("Home"),
       ),
       body: ListView.builder(
@@ -41,8 +68,6 @@ class _HomePageState extends State<HomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius:  BorderRadius.circular(10.0),
 
-
-
               ),
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -55,56 +80,34 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-
-                        height: 60,
-
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-
-                              borderRadius: BorderRadius.circular(40),),
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          style: const TextStyle(
-                              color: Colors.black
-                          ),
-                        ),),
+                      //Container(
+                      //
+                      //                         height: 60,
+                      //
+                      //                           alignment: Alignment.centerLeft,
+                      //                           decoration: BoxDecoration(
+                      //                               color: Colors.white,
+                      //
+                      //                               borderRadius: BorderRadius.circular(40),),
+                      //                         child: TextFormField(
+                      //                           keyboardType: TextInputType.text,
+                      //                           style: const TextStyle(
+                      //                               color: Colors.black
+                      //                           ),
+                      //                         ),),
                       const SizedBox(height:10),
+                       Text('socité :  flesk \n'
+                          ' description de travail : developpeur back-end: laravel \n'
+                           'adresse: Monastir \n'
+                          'type de travail: CDD\n '),
 
 
-                            Container(
-                              height: 60,
-                              alignment: Alignment.centerLeft,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(40),),
 
 
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          style: const TextStyle(
-                              color: Colors.black
-                          ),
-                        ),
-              ),
-                      const SizedBox(height:10),
 
-                      Container(
-                        height: 60,
-                        alignment: Alignment.centerLeft,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(40),),
 
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          style: const TextStyle(
-                              color: Colors.black
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height:10),
+
+
 
 
                     ],
@@ -141,16 +144,29 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Column(
         // shows the list of menu drawer
-        children: [
-          menuItem(1, "Dashboard", Icons.dashboard_outlined,
-              currentPage == DrawerSections.dashboard ? true : false),
-          menuItem(2, "Contacts", Icons.people_alt_outlined,
-              currentPage == DrawerSections.contacts ? true : false),
-          Divider(),
-          menuItem(3, "Settings", Icons.settings_outlined,
-              currentPage == DrawerSections.settings ? true : false),
+        children:
 
-        ],
+          listDropDown.map((e) {
+            return menuItem( 1 , e , Icons.person,
+                currentPage == DrawerSections.profile ? true : false);
+
+
+                menuItem( 2 , e , Icons.dashboard,
+                currentPage == DrawerSections.dashboard ? true : false);
+          }).toList(),
+
+         /* menuItem(1, "Profile", Icons.person,
+              currentPage == DrawerSections.profile ? true : false),
+          menuItem(2, "Dashboard", Icons.dashboard_outlined,
+              currentPage == DrawerSections.dashboard ? true : false),
+          menuItem(3, "Search", Icons.search,
+              currentPage == DrawerSections.search ? true : false),
+          menuItem(4, "About Us", Icons.people_alt_outlined,
+              currentPage == DrawerSections.about_us ? true : false),
+          menuItem(5, "Settings", Icons.settings_outlined,
+              currentPage == DrawerSections.settings ? true : false),*/
+
+
       ),
     );
   }
@@ -160,50 +176,93 @@ class _HomePageState extends State<HomePage> {
       color: selected ? Colors.grey[300] : Colors.transparent,
       child: InkWell(
         onTap: () {
-         // Navigator.pop(context);
-          setState(() {
+           // Navigator.pop(context, '/aboute');
+         // setState(() {
             if (id == 1) {
-              currentPage = DrawerSections.dashboard;
+              currentPage = DrawerSections.profile;
             } else if (id == 2) {
-              currentPage = DrawerSections.contacts;
+              currentPage = DrawerSections.dashboard;
             } else if (id == 3) {
+              currentPage = DrawerSections.search;
+            } else if (id == 4) {
+              currentPage = DrawerSections.about_us;
+            } else if (id == 5) {
               currentPage = DrawerSections.settings;
 
             }
-          });
+         // });
         },
         child: Padding(
           padding: EdgeInsets.all(15.0),
-          child: Row(
+            child:Column(
             children: [
-              Expanded(
-                child: Icon(
-                  icon,
-                  size: 20,
-                  color: Colors.black,
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
+              Row(
+                children: [
+                  Container(
+                    child: Icon(
+                      icon,
+                      size: 20,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
+                  Container(
+                    child: TextButton(onPressed:(){Navigator.pushNamed(context, '/profile');}, child: Text(
+                      title,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16),
+                    ),
+
+                    ),),
+                ],
               ),
-            ],
-          ),
+
+            /*  Row(
+                children: [
+                  Container(
+
+                    child: TextButton(onPressed:(){Navigator.pushNamed(context, '/dash');}, child: Text(
+                      "dashboard",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16),
+                    ),
+                    ),
+                  ),
+                ],
+              ),*/
+            /*  Container(
+
+                child: TextButton(onPressed:(){Navigator.pushNamed(context, '/aboute');}, child: Text(
+                  "aboutus",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16),
+                ),
+                ),
+              ),*/
+            /*  Container(
+
+                child: TextButton(onPressed:(){Navigator.pushNamed(context, '/profil');}, child: Text(
+                  "profile",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16),
+                ),
+                ),
+              ),*/
+
+          ],),
         ),
       ),
     );
   }
 }
-
 enum DrawerSections {
+  profile,
   dashboard,
-  contacts,
+  search,
+  about_us,
   settings,
 
 }

@@ -4,25 +4,30 @@ import'package:apppliaction_with_amal/text_filed_container.dart';
 import 'package:apppliaction_with_amal/rounded_input_filed.dart';
 
 class RoundedPasswordField extends StatelessWidget {
-  const RoundedPasswordField({ Key? key }) : super(key: key);
+  bool _isSecurePassword= true ;
+   RoundedPasswordField({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
-        obscureText: true,
+        obscureText: _isSecurePassword,
 
-        decoration: const InputDecoration(
+        decoration:  InputDecoration(
             icon: Icon(
               Icons.lock,
-              color: Colors.green
+              color: Colors.white
             ),
             hintText: "Password",
-            hintStyle:  TextStyle(fontFamily: 'OpenSans'),
-            suffixIcon: Icon(
-              Icons.visibility,
-              color: Colors.green
-            ),
+            hintStyle:  TextStyle(fontFamily: 'OpenSans', color:Colors.white),
+            suffixIcon:IconButton(
+               onPressed: () {
+
+                   _isSecurePassword = !_isSecurePassword;
+               },
+              icon: _isSecurePassword ? Icon(Icons.visibility_off,): Icon(Icons.visibility,), ),
+
+
             border: InputBorder.none),
       ),
     );

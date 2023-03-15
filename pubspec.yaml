@@ -37,6 +37,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   percent_indicator: ^3.4.0
   local_auth: ^2.1.5
+  curved_navigation_bar: ^1.0.3
+  flutter_cache_manager: ^3.3.0
+  http: ^0.13.4
+  path_provider: ^2.0.9
+  flutter_settings_ui: ^2.0.1
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -62,12 +70,21 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - img/img30.jpg
     - lib/icons/logo1.png
     - img/img21.jpg
     - img/img99.png
     - img/img101.png
     - img/img102.jpg
+    - img/img222.jpg
+    - img/img333.jpg
+    - img/img444.jpg
+    - img/img29.jpg
+    - img/img888.jpg
+    - img/img111.jpg
+    - img/img903.png
+    - img/img702.png
+    - img/img8787.jpg
+    - img/img6666.jpg
   #assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
