@@ -64,7 +64,17 @@ class LoginScreen extends StatelessWidget {
                               const RoundedInputField(
                                   hintText: "Email", icon: Icons.email  ),
                                RoundedPasswordField (  ),
-                              switchListTile(),
+                              TextButton(
+                                onPressed: () {  Navigator.pushNamed(context, '/forg');},
+                                child:Text(
+                                  'Forget Password',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
                               RoundedButton(text: 'LOGIN', press: () {Navigator.pushNamed(context, '/home');
                               }),
                               const SizedBox(
@@ -75,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                                 height: 20,
                               ),
                               TextButton(
-                              onPressed: () {  },
+                              onPressed: () {  Navigator.pushNamed(context, '/Signup');},
                               child:Text(
                             'Sign Up',
                             style: TextStyle(
@@ -102,21 +112,7 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-switchListTile() {
-   return Padding(
-     padding: const EdgeInsets.only(left: 50, right: 40),
-     child: SwitchListTile(
-       dense: false,
-      title:  Text(
-        'Password Forget',
-        style: TextStyle(fontSize: 12, fontFamily: 'OpenSans'),
-      ),
-      value: false,
 
-      onChanged: (value) {
-      },   ),
-   );
- }
 iconButton(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,

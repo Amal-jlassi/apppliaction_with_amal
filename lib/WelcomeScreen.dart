@@ -37,8 +37,6 @@ class WelcomeScreen extends StatelessWidget {
                   child: Container(
                     width: 500, //double.infinity,
                     height: 250,
-
-
                     decoration: const BoxDecoration(
                       color: Colors.white70,
                       borderRadius: BorderRadius.only(
@@ -68,11 +66,11 @@ class WelcomeScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               RoundedButton(text: 'LOGIN', press: () {
-                                Navigator.pushNamed(context, '/home');
+                                Navigator.pushNamed(context, '/second');
                               }),
                               RoundedButtonSignup(text: 'SIGNUP',
                                   press: () {
-                                Navigator.pushNamed(context, '/home');
+                                Navigator.pushNamed(context, '/Signup');
                               }),
                               const SizedBox(
                                 height: 10,

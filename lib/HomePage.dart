@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var currentPage = DrawerSections.dashboard;
+  var currentPage = DrawerSections.Dashboard;
   var listDropDown = [
   'profile',
   'dashboard',
@@ -30,18 +30,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var container;
-    if (currentPage == DrawerSections.profile) {
+    if (currentPage == DrawerSections.Profile) {
       container = ProfilePage();
-    }else if (currentPage == DrawerSections.dashboard) {
+    }else if (currentPage == DrawerSections.Dashboard) {
       container = DashboardPage();
-    } else if (currentPage == DrawerSections.search) {
+    } else if (currentPage == DrawerSections.Search) {
       container = RecherchePage();
 
-    } else if (currentPage == DrawerSections.about_us) {
+    } else if (currentPage == DrawerSections.About_us) {
       container = AboutUs();
-    } else if (currentPage == DrawerSections.settings) {
+    } else if (currentPage == DrawerSections.Settings) {
       container = SettingsOnePage();
-
     }
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(backgroundColor: Colors.grey,
@@ -72,11 +71,9 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child : Column(
-
+              child : const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -95,21 +92,11 @@ class _HomePageState extends State<HomePage> {
                       //                               color: Colors.black
                       //                           ),
                       //                         ),),
-                      const SizedBox(height:10),
+                      SizedBox(height:10),
                        Text('socité :  flesk \n'
                           ' description de travail : developpeur back-end: laravel \n'
                            'adresse: Monastir \n'
                           'type de travail: CDD\n '),
-
-
-
-
-
-
-
-
-
-
                     ],
 
                   )
@@ -148,11 +135,9 @@ class _HomePageState extends State<HomePage> {
 
           listDropDown.map((e) {
             return menuItem( 1 , e , Icons.person,
-                currentPage == DrawerSections.profile ? true : false);
+                currentPage == DrawerSections.Profile ? true : false);
 
 
-                menuItem( 2 , e , Icons.dashboard,
-                currentPage == DrawerSections.dashboard ? true : false);
           }).toList(),
 
          /* menuItem(1, "Profile", Icons.person,
@@ -179,15 +164,15 @@ class _HomePageState extends State<HomePage> {
            // Navigator.pop(context, '/aboute');
          // setState(() {
             if (id == 1) {
-              currentPage = DrawerSections.profile;
+              currentPage = DrawerSections.Profile;
             } else if (id == 2) {
-              currentPage = DrawerSections.dashboard;
+              currentPage = DrawerSections.Dashboard;
             } else if (id == 3) {
-              currentPage = DrawerSections.search;
+              currentPage = DrawerSections.Search;
             } else if (id == 4) {
-              currentPage = DrawerSections.about_us;
+              currentPage = DrawerSections.About_us;
             } else if (id == 5) {
-              currentPage = DrawerSections.settings;
+              currentPage = DrawerSections.Settings;
 
             }
          // });
@@ -259,10 +244,10 @@ class _HomePageState extends State<HomePage> {
   }
 }
 enum DrawerSections {
-  profile,
-  dashboard,
-  search,
-  about_us,
-  settings,
+  Profile,
+  Dashboard,
+  Search,
+  About_us,
+  Settings,
 
 }
