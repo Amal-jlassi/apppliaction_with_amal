@@ -29,6 +29,7 @@ import 'auth_path.dart';
 import 'FacePage.dart';
 import 'Languages_screen.dart';
 import 'CompanyPage.dart';
+import 'CondidatPage.dart';
 void main() => runApp(const App());
 
 class App extends StatelessWidget {
@@ -50,7 +51,7 @@ class App extends StatelessWidget {
       //   '/Signup':(context) => const SignupPage(),
       //   '/forg':(context) => const ForgotPasswordPage(),
 
-     home: CompanyPage()
+     home: WelcomeScreen()
 
        );
   }

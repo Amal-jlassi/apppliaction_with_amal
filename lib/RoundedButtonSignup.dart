@@ -31,7 +31,7 @@ class RoundedButtonSignup extends StatelessWidget {
       ),
       onPressed: press,
       style: ElevatedButton.styleFrom(
-          primary: Colors.grey,
+          primary: Color(0xffAFF4D2),
           padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
           textStyle: TextStyle(
               letterSpacing: 2,
