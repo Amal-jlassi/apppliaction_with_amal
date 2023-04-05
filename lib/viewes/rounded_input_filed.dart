@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:apppliaction_with_amal/Login_screen.dart';
-import 'package:apppliaction_with_amal/text_filed_container.dart';
+import 'package:apppliaction_with_amal/viewes/Login_screen.dart';
+import 'package:apppliaction_with_amal/viewes/text_filed_container.dart';
 import 'SignupPage.dart';
 
 class RoundedInputField extends StatelessWidget {

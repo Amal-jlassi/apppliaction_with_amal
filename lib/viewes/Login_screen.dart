@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:apppliaction_with_amal/RoundedIcon.dart';
-import 'package:apppliaction_with_amal/rounded_input_filed.dart';
-import 'package:apppliaction_with_amal/text_filed_container.dart';
-import 'package:apppliaction_with_amal/rounded_password_field.dart';
-import 'package:apppliaction_with_amal/roundedButton.dart';
-import 'Create.dart ' ;
+import 'package:apppliaction_with_amal/viewes/RoundedIcon.dart';
+import 'package:apppliaction_with_amal/viewes/rounded_input_filed.dart';
+import 'package:apppliaction_with_amal/viewes/text_filed_container.dart';
+import 'package:apppliaction_with_amal/viewes/rounded_password_field.dart';
+import 'package:apppliaction_with_amal/viewes/roundedButton.dart';
+
 import 'dart:convert';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -21,13 +22,13 @@ class LoginScreen extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                height: 350,
-                width: 950,
-                decoration: BoxDecoration(
-                  image:DecorationImage(
-                    image:AssetImage('img/img8787.jpg'),
+                  height: 350,
+                  width: 950,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('img/img8787.jpg'),
+                    ),
                   ),
-                ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 320.0),
@@ -62,11 +63,13 @@ class LoginScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               const RoundedInputField(
-                                  hintText: "Email", icon: Icons.email  ),
-                               RoundedPasswordField (  ),
+                                  hintText: "Email", icon: Icons.email),
+                              RoundedPasswordField(),
                               TextButton(
-                                onPressed: () {  Navigator.pushNamed(context, '/forg');},
-                                child:Text(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/forg');
+                                },
+                                child: Text(
                                   'Forget Password',
                                   style: TextStyle(
                                     fontSize: 13,
@@ -75,27 +78,33 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              RoundedButton(text: 'LOGIN', press: () {Navigator.pushNamed(context, '/home');
-                              }),
+                              RoundedButton(
+                                  text: 'LOGIN',
+                                  press: () {
+                                    Navigator.pushNamed(context, '/home');
+                                  }),
                               const SizedBox(
                                 height: 10,
                               ),
-
                               const SizedBox(
                                 height: 20,
                               ),
                               TextButton(
-                              onPressed: () {  Navigator.pushNamed(context, '/Signup');},
-                              child:Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              fontSize: 19,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                              const SizedBox(height: 20,)
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/Signup');
+                                },
+                                child: Text(
+                                  'Sign Up',
+                                  style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              )
                             ],
                           ),
                         )
@@ -112,7 +121,6 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-
 iconButton(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -125,7 +133,6 @@ iconButton(BuildContext context) {
       SizedBox(
         width: 20,
       ),
-
     ],
   );
 }

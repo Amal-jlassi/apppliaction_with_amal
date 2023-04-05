@@ -1,4 +1,4 @@
-import 'package:apppliaction_with_amal/Company.dart';
+import 'package:apppliaction_with_amal/screens/Company.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -1,4 +1,4 @@
-import 'package:apppliaction_with_amal/login.dart';
+import 'package:apppliaction_with_amal/screens/login.dart';
 import 'package:local_auth/local_auth.dart';
 import 'auth_path.dart';
 import 'local_auth_api.dart';

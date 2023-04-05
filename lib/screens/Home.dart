@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'My_Drawer_Header.dart';
-import 'DashboardPage.dart';
-import 'ContactsPage.dart';
-import 'SettingsPage.dart';
+import '../viewes/My_Drawer_Header.dart';
+import '../viewes/DashboardPage.dart';
+import '../viewes/ContactsPage.dart';
+import '../viewes/SettingsPage.dart';
 
 class Home extends StatefulWidget {
   @override

@@ -1,12 +1,12 @@
 
-import 'package:apppliaction_with_amal/RoundedButtonSignup.dart';
+import 'package:apppliaction_with_amal/viewes/RoundedButtonSignup.dart';
 import 'package:flutter/material.dart';
-import 'package:apppliaction_with_amal/RoundedIcon.dart';
-import 'package:apppliaction_with_amal/text_filed_container_Con.dart';
-import 'package:apppliaction_with_amal/rounded_input_field_Com.dart';
-import 'package:apppliaction_with_amal/rounded_password_field.dart';
-import 'package:apppliaction_with_amal/roundedButton.dart';
-import 'Create.dart ' ;
+import 'package:apppliaction_with_amal/viewes/RoundedIcon.dart';
+import 'package:apppliaction_with_amal/viewes/text_filed_container_Con.dart';
+import 'package:apppliaction_with_amal/viewes/rounded_input_field_Com.dart';
+import 'package:apppliaction_with_amal/viewes/rounded_password_field.dart';
+import 'package:apppliaction_with_amal/viewes/roundedButton.dart';
+
 import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
 

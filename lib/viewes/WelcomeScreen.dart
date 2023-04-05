@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:apppliaction_with_amal/login_signup_btn.dart';
+import 'package:apppliaction_with_amal/viewes/login_signup_btn.dart';
 
-import 'package:apppliaction_with_amal/background.dart';
+import 'package:apppliaction_with_amal/screens/background.dart';
 import 'roundedButton.dart';
-import 'package:apppliaction_with_amal/RoundedButtonSignup.dart';
+import 'package:apppliaction_with_amal/viewes/RoundedButtonSignup.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 

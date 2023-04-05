@@ -16,7 +16,7 @@ Widget build(BuildContext context) {
 
           GestureDetector(onTap : (){ Navigator.pushNamed(context, '/home');}, child: Icon(Icons. home)),
           GestureDetector (onTap : (){ Navigator.pushNamed(context, '/second');}, child :Icon(Icons.add)),
-          GestureDetector (onTap : () { Navigator.pushNamed(context, '/home');}, child :Icon(Icons.search)),
+          GestureDetector (onTap : () { Navigator.pushNamed(context, '/search');}, child :Icon(Icons.search)),
         ],
       ) ,
       backgroundColor: Colors.white,
@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
                             const RoundedInputField(
                                 hintText: "FRAMEWORK", icon: Icons.laptop),
 
-                            RoundedButton(text: 'SEARCH', press: () {}),
+                            RoundedButton(text: 'SEARCH', press: (){ Navigator.pop(context, '/home');}),
                             const SizedBox(
                               height: 40,
                             ),
